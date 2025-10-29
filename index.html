@@ -438,7 +438,7 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        /* New feature: Time blocking */
+        /* Time blocking */
         .time-block {
             border-radius: 0.5rem;
             padding: 0.5rem;
@@ -448,7 +448,7 @@
             font-size: 0.875rem;
         }
 
-        /* New feature: Smart suggestions */
+        /* Smart suggestions */
         .suggestion-card {
             background: var(--card-bg);
             border-radius: 0.5rem;
@@ -507,7 +507,7 @@
             }
         }
 
-        /* New UI enhancements */
+        /* UI enhancements */
         .glass-effect {
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.7);
@@ -733,6 +733,496 @@
             margin-right: 0.25rem;
             color: var(--warning);
         }
+
+        /* New Features */
+        
+        /* Calendar View */
+        .calendar-view {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+        
+        .calendar-day:hover {
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+        
+        .calendar-day.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .calendar-day.has-tasks::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            margin: 2px auto 0;
+        }
+        
+        .calendar-day.active.has-tasks::after {
+            background-color: white;
+        }
+        
+        /* Time Tracking */
+        .time-tracker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .time-tracker-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+        }
+        
+        .time-tracker-display {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Collaboration */
+        .collaborator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: white;
+            margin-right: -8px;
+            border: 2px solid var(--card-bg);
+        }
+        
+        .collaborators-list {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Task Templates */
+        .template-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+        
+        .template-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Advanced Analytics */
+        .analytics-chart {
+            height: 200px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            gap: 8px;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: var(--primary);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.5s;
+        }
+        
+        /* Smart Notifications */
+        .notification-item {
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--card-bg);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .notification-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Mobile Responsiveness Improvements */
+        @media (max-width: 640px) {
+            .header-actions {
+                gap: 8px;
+            }
+            
+            .header-actions button {
+                padding: 6px;
+            }
+            
+            .stats-card {
+                padding: 12px;
+            }
+            
+            .task-input-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .quick-actions {
+                gap: 8px;
+            }
+            
+            .quick-action-btn {
+                flex: 1 0 calc(50% - 8px);
+                justify-content: center;
+                min-width: 0;
+            }
+            
+            .modal-content {
+                margin: 16px;
+                padding: 16px;
+            }
+            
+            .timer-display {
+                font-size: 2rem;
+            }
+            
+            .timer-controls {
+                gap: 8px;
+            }
+            
+            .timer-controls button {
+                padding: 8px 12px;
+            }
+            
+            .calendar-view {
+                gap: 2px;
+            }
+            
+            .calendar-day {
+                font-size: 0.75rem;
+                padding: 2px;
+            }
+            
+            .collaborators-list {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            
+            .collaborator {
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .task-section {
+                order: 1;
+            }
+            
+            .kanban-column {
+                min-height: 200px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .kanban-column {
+                min-height: 300px;
+            }
+        }
+        
+        /* Touch Improvements */
+        .touch-friendly {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        .touch-friendly-btn {
+            padding: 12px 16px;
+        }
+        
+        /* Enhanced Swipe Actions */
+        .task-item {
+            touch-action: pan-y;
+        }
+        
+        /* Improved Focus Mode for Mobile */
+        .focus-mode-mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--light-bg);
+            z-index: 1000;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        
+        .focus-mode-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        /* Enhanced Empty States */
+        .empty-state {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        
+        .empty-state p {
+            margin-bottom: 8px;
+        }
+        
+        .empty-state button {
+            margin-top: 16px;
+        }
+        
+        /* Improved Loading States */
+        .skeleton {
+            background: linear-gradient(90deg, var(--border) 25%, rgba(255,255,255,0.5) 50%, var(--border) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+        }
+        
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* New Feature: Calendar Integration */
+        .calendar-integration {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+        
+        .calendar-weekday {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            padding: 4px;
+        }
+        
+        /* New Feature: Task Templates */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .template-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+        
+        .template-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .template-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        /* New Feature: Collaboration */
+        .collaboration-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .collaborator-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--light-bg);
+            margin-bottom: 8px;
+        }
+        
+        .collaborator-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* New Feature: Advanced Analytics */
+        .analytics-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .analytics-card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .analytics-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .analytics-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        /* New Feature: Time Tracking */
+        .time-tracking-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .time-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--light-bg);
+            margin-bottom: 8px;
+        }
+        
+        .time-duration {
+            font-weight: bold;
+        }
+        
+        /* New Feature: Smart Notifications */
+        .notifications-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .notification-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--light-bg);
+            margin-bottom: 8px;
+        }
+        
+        .notification-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-time {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
     </style>
 </head>
 <body class="transition-colors duration-300 pb-16 md:pb-0">
@@ -750,16 +1240,19 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-2 md:space-x-4 header-actions">
-                    <button id="viewToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors relative" title="Toggle View">
+                    <button id="viewToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors relative touch-friendly" title="Toggle View">
                         <i class="fas fa-columns text-gray-700 dark:text-gray-300"></i>
                     </button>
-                    <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors" title="Toggle Theme">
+                    <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors touch-friendly" title="Toggle Theme">
                         <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
                     </button>
-                    <button id="focusModeToggle" class="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-200 transition-colors">
+                    <button id="focusModeToggle" class="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-200 transition-colors touch-friendly-btn">
                         <i class="fas fa-bullseye mr-1"></i> <span class="hidden md:inline">Focus</span>
                     </button>
-                    <button id="settingsToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors relative" title="Settings">
+                    <button id="calendarToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors touch-friendly" title="Calendar View">
+                        <i class="fas fa-calendar text-gray-700 dark:text-gray-300"></i>
+                    </button>
+                    <button id="settingsToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors relative touch-friendly" title="Settings">
                         <i class="fas fa-cog text-gray-700 dark:text-gray-300"></i>
                         <span id="settingsNotification" class="notification-badge hidden"></span>
                     </button>
@@ -803,20 +1296,46 @@
                 <!-- Date Navigation -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 flex flex-col justify-center">
                     <div class="flex justify-between items-center">
-                        <button id="prevDay" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <button id="prevDay" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors touch-friendly">
                             <i class="fas fa-chevron-left text-gray-600 dark:text-gray-300"></i>
                         </button>
                         <div class="text-center">
                             <p id="dayOfWeek" class="text-lg font-semibold text-gray-800 dark:text-white">Today</p>
                             <p id="selectedDateDisplay" class="text-gray-600 dark:text-gray-300">October 15, 2025</p>
                         </div>
-                        <button id="nextDay" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <button id="nextDay" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors touch-friendly">
                             <i class="fas fa-chevron-right text-gray-600 dark:text-gray-300"></i>
                         </button>
                     </div>
-                    <button id="todayBtn" class="mt-3 text-sm text-purple-600 dark:text-purple-400 font-medium hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                    <button id="todayBtn" class="mt-3 text-sm text-purple-600 dark:text-purple-400 font-medium hover:text-purple-800 dark:hover:text-purple-300 transition-colors touch-friendly-btn">
                         <i class="fas fa-calendar-day mr-1"></i> Go to Today
                     </button>
+                </div>
+            </div>
+
+            <!-- Calendar View (Hidden by default) -->
+            <div id="calendarView" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 md:p-5 mb-6 hidden">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Calendar</h2>
+                    <div class="flex items-center space-x-2">
+                        <button id="prevMonth" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors touch-friendly">
+                            <i class="fas fa-chevron-left text-gray-600 dark:text-gray-300"></i>
+                        </button>
+                        <span id="currentMonth" class="font-medium text-gray-800 dark:text-white">October 2025</span>
+                        <button id="nextMonth" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors touch-friendly">
+                            <i class="fas fa-chevron-right text-gray-600 dark:text-gray-300"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-weekday">Sun</div>
+                    <div class="calendar-weekday">Mon</div>
+                    <div class="calendar-weekday">Tue</div>
+                    <div class="calendar-weekday">Wed</div>
+                    <div class="calendar-weekday">Thu</div>
+                    <div class="calendar-weekday">Fri</div>
+                    <div class="calendar-weekday">Sat</div>
+                    <!-- Calendar days will be populated here -->
                 </div>
             </div>
 
@@ -824,27 +1343,27 @@
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 md:p-5 mb-6">
                 <h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white">Quick Actions</h2>
                 <div class="quick-actions">
-                    <button class="quick-action-btn" id="quickCompleteAll">
+                    <button class="quick-action-btn touch-friendly-btn" id="quickCompleteAll">
                         <i class="fas fa-check-double"></i>
                         <span>Complete All</span>
                     </button>
-                    <button class="quick-action-btn" id="quickAddBreak">
+                    <button class="quick-action-btn touch-friendly-btn" id="quickAddBreak">
                         <i class="fas fa-coffee"></i>
                         <span>Add Break</span>
                     </button>
-                    <button class="quick-action-btn" id="quickAddMeeting">
+                    <button class="quick-action-btn touch-friendly-btn" id="quickAddMeeting">
                         <i class="fas fa-users"></i>
                         <span>Add Meeting</span>
                     </button>
-                    <button class="quick-action-btn" id="quickAddExercise">
+                    <button class="quick-action-btn touch-friendly-btn" id="quickAddExercise">
                         <i class="fas fa-running"></i>
                         <span>Add Exercise</span>
                     </button>
-                    <button class="quick-action-btn" id="quickAddReading">
+                    <button class="quick-action-btn touch-friendly-btn" id="quickAddReading">
                         <i class="fas fa-book"></i>
                         <span>Add Reading</span>
                     </button>
-                    <button class="quick-action-btn hidden md:flex" id="quickTimeBlock">
+                    <button class="quick-action-btn touch-friendly-btn hidden md:flex" id="quickTimeBlock">
                         <i class="fas fa-clock"></i>
                         <span>Time Block</span>
                     </button>
@@ -860,12 +1379,12 @@
                         <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Add New Task</h2>
                         <div class="space-y-4">
                             <input type="text" id="newTaskInput" placeholder="What needs to be done?" 
-                                   class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors task-input">
+                                   class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors task-input touch-friendly">
                             
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 task-input-grid">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Priority</label>
-                                    <select id="prioritySelect" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors">
+                                    <select id="prioritySelect" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly">
                                         <option value="low">Low</option>
                                         <option value="medium" selected>Medium</option>
                                         <option value="high">High</option>
@@ -874,7 +1393,7 @@
                                 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
-                                    <select id="categorySelect" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors">
+                                    <select id="categorySelect" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly">
                                         <option value="personal">Personal</option>
                                         <option value="work" selected>Work</option>
                                         <option value="health">Health</option>
@@ -887,24 +1406,24 @@
                                 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Due Time</label>
-                                    <input type="time" id="dueTimeInput" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors">
+                                    <input type="time" id="dueTimeInput" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly">
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Duration (min)</label>
-                                    <input type="number" id="durationInput" min="5" max="480" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors" placeholder="Optional">
+                                    <input type="number" id="durationInput" min="5" max="480" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly" placeholder="Optional">
                                 </div>
                             </div>
 
                             <div class="flex items-center">
-                                <input type="checkbox" id="recurringCheckbox" class="rounded text-purple-600 focus:ring-purple-500">
+                                <input type="checkbox" id="recurringCheckbox" class="rounded text-purple-600 focus:ring-purple-500 touch-friendly">
                                 <label for="recurringCheckbox" class="ml-2 text-sm text-gray-700 dark:text-gray-300">Make this a recurring task</label>
                             </div>
                             
                             <div id="recurringOptions" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Repeat</label>
-                                    <select id="repeatInterval" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors">
+                                    <select id="repeatInterval" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly">
                                         <option value="daily">Daily</option>
                                         <option value="weekly">Weekly</option>
                                         <option value="monthly">Monthly</option>
@@ -912,11 +1431,11 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Ends After</label>
-                                    <input type="number" id="repeatCount" min="1" max="365" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors" placeholder="Occurrences">
+                                    <input type="number" id="repeatCount" min="1" max="365" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly" placeholder="Occurrences">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Or On Date</label>
-                                    <input type="date" id="repeatUntil" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors">
+                                    <input type="date" id="repeatUntil" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly">
                                 </div>
                             </div>
 
@@ -924,26 +1443,37 @@
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Effort Estimation</label>
                                 <div class="flex items-center space-x-2">
-                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded" data-value="1">Easy</button>
-                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded" data-value="2">Medium</button>
-                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded" data-value="3">Hard</button>
-                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded" data-value="5">Complex</button>
+                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded touch-friendly-btn" data-value="1">Easy</button>
+                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded touch-friendly-btn" data-value="2">Medium</button>
+                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded touch-friendly-btn" data-value="3">Hard</button>
+                                    <button class="estimation-btn px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded touch-friendly-btn" data-value="5">Complex</button>
                                 </div>
                                 <div class="estimation-bar mt-2">
                                     <div class="estimation-progress" id="estimationProgress" style="width: 0%"></div>
                                 </div>
                             </div>
                             
+                            <!-- Time Tracking -->
+                            <div class="time-tracker hidden" id="timeTracker">
+                                <div class="time-tracker-btn" id="startTimerBtn">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="time-tracker-display" id="timeTrackerDisplay">00:00:00</div>
+                                <div class="time-tracker-btn" id="stopTimerBtn">
+                                    <i class="fas fa-stop"></i>
+                                </div>
+                            </div>
+                            
                             <div class="flex justify-between">
-                                <button id="addTaskButton" class="px-5 py-2.5 bg-purple-600 text-white font-medium rounded-lg shadow-md hover:bg-purple-700 transition-colors flex items-center">
+                                <button id="addTaskButton" class="px-5 py-2.5 bg-purple-600 text-white font-medium rounded-lg shadow-md hover:bg-purple-700 transition-colors flex items-center touch-friendly-btn">
                                     <i class="fas fa-plus mr-2"></i> Add Task
                                 </button>
                                 
                                 <div class="flex space-x-2">
-                                    <button id="clearTasksButton" class="px-4 py-2.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                                    <button id="clearTasksButton" class="px-4 py-2.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors touch-friendly-btn">
                                         Clear All
                                     </button>
-                                    <button id="exportDataButton" class="px-4 py-2.5 bg-green-200 dark:bg-green-700 text-green-700 dark:text-green-300 font-medium rounded-lg hover:bg-green-300 dark:hover:bg-green-600 transition-colors">
+                                    <button id="exportDataButton" class="px-4 py-2.5 bg-green-200 dark:bg-green-700 text-green-700 dark:text-green-300 font-medium rounded-lg hover:bg-green-300 dark:hover:bg-green-600 transition-colors touch-friendly-btn">
                                         Export
                                     </button>
                                 </div>
@@ -955,7 +1485,7 @@
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 md:p-5" id="suggestionsSection">
                         <div class="flex justify-between items-center mb-3">
                             <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Smart Suggestions</h2>
-                            <button id="refreshSuggestions" class="text-gray-500 hover:text-purple-600 transition-colors">
+                            <button id="refreshSuggestions" class="text-gray-500 hover:text-purple-600 transition-colors touch-friendly">
                                 <i class="fas fa-sync-alt"></i>
                             </button>
                         </div>
@@ -967,20 +1497,20 @@
                     <!-- Task Filters -->
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 md:p-5">
                         <div class="flex flex-wrap gap-2">
-                            <button class="filter-btn active px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-sm font-medium transition-colors" data-filter="all">
+                            <button class="filter-btn active px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-sm font-medium transition-colors touch-friendly-btn" data-filter="all">
                                 All Tasks
                             </button>
-                            <button class="filter-btn px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-filter="active">
+                            <button class="filter-btn px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly-btn" data-filter="active">
                                 Active
                             </button>
-                            <button class="filter-btn px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-filter="completed">
+                            <button class="filter-btn px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly-btn" data-filter="completed">
                                 Completed
                             </button>
-                            <button class="filter-btn px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-filter="high">
+                            <button class="filter-btn px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly-btn" data-filter="high">
                                 High Priority
                             </button>
                             <div class="relative flex-grow max-w-xs">
-                                <input type="text" id="taskSearch" placeholder="Search tasks..." class="w-full px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm focus:ring-2 focus:ring-purple-500 focus:bg-white dark:focus:bg-gray-600 transition-colors">
+                                <input type="text" id="taskSearch" placeholder="Search tasks..." class="w-full px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm focus:ring-2 focus:ring-purple-500 focus:bg-white dark:focus:bg-gray-600 transition-colors touch-friendly">
                                 <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                             </div>
                         </div>
@@ -992,10 +1522,10 @@
                             <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Today's Tasks</h2>
                             <div class="flex items-center space-x-2">
                                 <span class="text-sm text-gray-500 dark:text-gray-400" id="taskCount">0 tasks</span>
-                                <button id="sortTasksButton" class="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" title="Sort tasks">
+                                <button id="sortTasksButton" class="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly" title="Sort tasks">
                                     <i class="fas fa-sort"></i>
                                 </button>
-                                <button id="viewModeButton" class="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" title="Change view">
+                                <button id="viewModeButton" class="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly" title="Change view">
                                     <i class="fas fa-list"></i>
                                 </button>
                             </div>
@@ -1005,6 +1535,9 @@
                             <div class="empty-state">
                                 <i class="fas fa-clipboard-list"></i>
                                 <p>No tasks for today. Add one above!</p>
+                                <button class="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors touch-friendly-btn">
+                                    <i class="fas fa-plus mr-2"></i> Add Your First Task
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1013,7 +1546,7 @@
                     <div id="kanbanBoard" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hidden">
                         <div class="p-4 md:p-5 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                             <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Kanban Board</h2>
-                            <button id="closeKanban" class="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                            <button id="closeKanban" class="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
@@ -1059,13 +1592,13 @@
                         <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Focus Timer</h2>
                         <div class="timer-display" id="timerDisplay">25:00</div>
                         <div class="timer-controls">
-                            <button id="timerStart" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                            <button id="timerStart" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors touch-friendly-btn">
                                 <i class="fas fa-play"></i>
                             </button>
-                            <button id="timerPause" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors">
+                            <button id="timerPause" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors touch-friendly-btn">
                                 <i class="fas fa-pause"></i>
                             </button>
-                            <button id="timerReset" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                            <button id="timerReset" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors touch-friendly-btn">
                                 <i class="fas fa-stop"></i>
                             </button>
                         </div>
@@ -1073,9 +1606,9 @@
                             <div class="timer-progress-bar" id="timerProgress"></div>
                         </div>
                         <div class="mt-4 flex justify-center space-x-2">
-                            <button class="timer-preset px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-minutes="25">25min</button>
-                            <button class="timer-preset px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-minutes="15">15min</button>
-                            <button class="timer-preset px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-minutes="5">5min</button>
+                            <button class="timer-preset px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors touch-friendly-btn" data-minutes="25">25min</button>
+                            <button class="timer-preset px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors touch-friendly-btn" data-minutes="15">15min</button>
+                            <button class="timer-preset px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors touch-friendly-btn" data-minutes="5">5min</button>
                         </div>
                         <div class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
                             <span id="completedSessions">0</span> sessions completed today
@@ -1086,7 +1619,7 @@
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 md:p-5">
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Habit Tracker</h2>
-                            <button id="addHabit" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                            <button id="addHabit" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors touch-friendly">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </div>
@@ -1095,6 +1628,9 @@
                             <div class="empty-state py-4">
                                 <i class="fas fa-chart-line"></i>
                                 <p>No habits tracked yet. Add one to build consistency!</p>
+                                <button class="mt-2 px-3 py-1 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-700 transition-colors touch-friendly-btn">
+                                    <i class="fas fa-plus mr-1"></i> Add Habit
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1111,11 +1647,11 @@
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 md:p-5">
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Daily Notes</h2>
-                            <button id="saveNotesButton" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                            <button id="saveNotesButton" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors touch-friendly">
                                 <i class="fas fa-save"></i>
                             </button>
                         </div>
-                        <textarea id="dailyNotes" class="w-full h-32 p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors" placeholder="Jot down your thoughts, ideas, or reminders..."></textarea>
+                        <textarea id="dailyNotes" class="w-full h-32 p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly" placeholder="Jot down your thoughts, ideas, or reminders..."></textarea>
                     </div>
 
                     <!-- Productivity Tip -->
@@ -1150,6 +1686,10 @@
                 <i class="fas fa-sticky-note"></i>
                 <span>Notes</span>
             </div>
+            <div class="mobile-menu-item" data-section="calendar">
+                <i class="fas fa-calendar"></i>
+                <span>Calendar</span>
+            </div>
         </div>
 
         <!-- Toast Notifications -->
@@ -1161,6 +1701,7 @@
             <div class="context-menu-item" data-action="edit">Edit Task</div>
             <div class="context-menu-item" data-action="duplicate">Duplicate Task</div>
             <div class="context-menu-item" data-action="delete">Delete Task</div>
+            <div class="context-menu-item" data-action="time">Track Time</div>
         </div>
 
         <!-- Settings Modal -->
@@ -1168,7 +1709,7 @@
             <div class="modal-content">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Settings</h3>
-                    <button id="closeSettingsModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                    <button id="closeSettingsModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 touch-friendly">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
@@ -1178,15 +1719,15 @@
                         <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Appearance</h4>
                         <div class="flex items-center space-x-4">
                             <div class="flex items-center">
-                                <input type="radio" id="themeSystem" name="theme" value="system" class="mr-2">
+                                <input type="radio" id="themeSystem" name="theme" value="system" class="mr-2 touch-friendly">
                                 <label for="themeSystem" class="text-gray-700 dark:text-gray-300">System</label>
                             </div>
                             <div class="flex items-center">
-                                <input type="radio" id="themeLight" name="theme" value="light" class="mr-2">
+                                <input type="radio" id="themeLight" name="theme" value="light" class="mr-2 touch-friendly">
                                 <label for="themeLight" class="text-gray-700 dark:text-gray-300">Light</label>
                             </div>
                             <div class="flex items-center">
-                                <input type="radio" id="themeDark" name="theme" value="dark" class="mr-2">
+                                <input type="radio" id="themeDark" name="theme" value="dark" class="mr-2 touch-friendly">
                                 <label for="themeDark" class="text-gray-700 dark:text-gray-300">Dark</label>
                             </div>
                         </div>
@@ -1226,13 +1767,13 @@
                     <div>
                         <h4 class="font-medium text-gray-700 dark:text-gray-300 mb-2">Data Management</h4>
                         <div class="space-y-2">
-                            <button id="exportData" class="w-full text-left px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                            <button id="exportData" class="w-full text-left px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly-btn">
                                 Export All Data
                             </button>
-                            <button id="importData" class="w-full text-left px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                            <button id="importData" class="w-full text-left px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-friendly-btn">
                                 Import Data
                             </button>
-                            <button id="clearAllData" class="w-full text-left px-3 py-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition-colors">
+                            <button id="clearAllData" class="w-full text-left px-3 py-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition-colors touch-friendly-btn">
                                 Clear All Data
                             </button>
                         </div>
@@ -1249,10 +1790,10 @@
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2" id="confirmationTitle">Confirm Action</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-6" id="confirmationMessage">Are you sure you want to proceed?</p>
                     <div class="flex justify-center space-x-3">
-                        <button id="confirmAction" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                        <button id="confirmAction" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors touch-friendly-btn">
                             Confirm
                         </button>
-                        <button id="cancelAction" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
+                        <button id="cancelAction" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors touch-friendly-btn">
                             Cancel
                         </button>
                     </div>
@@ -1265,7 +1806,7 @@
             <div class="modal-content">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Add New Habit</h3>
-                    <button id="closeHabitModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                    <button id="closeHabitModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 touch-friendly">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
@@ -1273,12 +1814,12 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Habit Name</label>
-                        <input type="text" id="habitName" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors" placeholder="e.g., Morning Meditation">
+                        <input type="text" id="habitName" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly" placeholder="e.g., Morning Meditation">
                     </div>
                     
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Frequency</label>
-                        <select id="habitFrequency" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors">
+                        <select id="habitFrequency" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly">
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
@@ -1287,14 +1828,14 @@
                     
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Goal</label>
-                        <input type="number" id="habitGoal" min="1" max="100" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors" placeholder="e.g., 30 days" value="30">
+                        <input type="number" id="habitGoal" min="1" max="100" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-colors touch-friendly" placeholder="e.g., 30 days" value="30">
                     </div>
                     
                     <div class="flex justify-end space-x-3">
-                        <button id="cancelHabit" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
+                        <button id="cancelHabit" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors touch-friendly-btn">
                             Cancel
                         </button>
-                        <button id="saveHabit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        <button id="saveHabit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors touch-friendly-btn">
                             Save Habit
                         </button>
                     </div>
@@ -1304,7 +1845,7 @@
     </div>
 
     <script>
-        // Enhanced application state
+        // Enhanced application state with new features
         const state = {
             selectedDate: new Date(),
             tasks: JSON.parse(localStorage.getItem('tasks')) || [],
@@ -1314,12 +1855,19 @@
             searchQuery: '',
             sortBy: 'priority',
             viewMode: 'list', // 'list' or 'kanban'
+            calendarView: false,
             timer: {
                 isRunning: false,
                 timeLeft: 25 * 60, // 25 minutes in seconds
                 totalTime: 25 * 60,
                 interval: null,
                 sessionsCompleted: 0
+            },
+            timeTracker: {
+                isRunning: false,
+                startTime: null,
+                currentTaskId: null,
+                interval: null
             },
             notes: localStorage.getItem('dailyNotes') || '',
             habits: JSON.parse(localStorage.getItem('habits')) || [],
@@ -1339,7 +1887,51 @@
                 "Group similar tasks together",
                 "Eliminate distractions during focus sessions",
                 "Use the Pomodoro technique for better focus"
-            ]
+            ],
+            // New features data
+            calendar: {
+                currentMonth: new Date().getMonth(),
+                currentYear: new Date().getFullYear()
+            },
+            taskTemplates: [
+                {
+                    id: '1',
+                    name: 'Morning Routine',
+                    category: 'personal',
+                    priority: 'medium',
+                    duration: 60,
+                    recurring: { interval: 'daily' }
+                },
+                {
+                    id: '2',
+                    name: 'Team Meeting',
+                    category: 'meetings',
+                    priority: 'medium',
+                    duration: 60
+                },
+                {
+                    id: '3',
+                    name: 'Exercise Session',
+                    category: 'health',
+                    priority: 'medium',
+                    duration: 45
+                },
+                {
+                    id: '4',
+                    name: 'Weekly Review',
+                    category: 'work',
+                    priority: 'high',
+                    duration: 90,
+                    recurring: { interval: 'weekly' }
+                }
+            ],
+            collaborators: [
+                { id: '1', name: 'Alex Johnson', initials: 'AJ' },
+                { id: '2', name: 'Sam Wilson', initials: 'SW' },
+                { id: '3', name: 'Taylor Kim', initials: 'TK' }
+            ],
+            timeEntries: JSON.parse(localStorage.getItem('timeEntries')) || [],
+            notifications: JSON.parse(localStorage.getItem('notifications')) || []
         };
 
         // Motivational quotes and productivity tips
@@ -1603,6 +2195,9 @@
                     <div class="empty-state">
                         <i class="fas fa-clipboard-list"></i>
                         <p>${message}</p>
+                        <button class="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors touch-friendly-btn">
+                            <i class="fas fa-plus mr-2"></i> Add Your First Task
+                        </button>
                     </div>
                 `;
                 return;
@@ -1680,7 +2275,7 @@
                     ${swipeActions}
                     <div class="flex items-start justify-between">
                         <div class="flex items-start space-x-3 flex-grow">
-                            <button class="toggle-checkbox mt-1 flex-shrink-0 w-5 h-5 rounded-full border-2 ${isCompleted ? 'bg-purple-500 border-purple-500' : 'border-gray-300 dark:border-gray-600'} flex items-center justify-center transition-colors" data-task-id="${task.id}">
+                            <button class="toggle-checkbox mt-1 flex-shrink-0 w-5 h-5 rounded-full border-2 ${isCompleted ? 'bg-purple-500 border-purple-500' : 'border-gray-300 dark:border-gray-600'} flex items-center justify-center transition-colors touch-friendly" data-task-id="${task.id}">
                                 ${isCompleted ? '<i class="fas fa-check text-white text-xs"></i>' : ''}
                             </button>
                             <div class="flex-grow">
@@ -1696,10 +2291,10 @@
                             </div>
                         </div>
                         <div class="flex space-x-2 ml-2">
-                            <button class="text-gray-400 hover:text-purple-600 transition-colors edit-button" data-task-id="${task.id}" title="Edit Task">
+                            <button class="text-gray-400 hover:text-purple-600 transition-colors edit-button touch-friendly" data-task-id="${task.id}" title="Edit Task">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="text-gray-400 hover:text-red-600 transition-colors delete-button" data-task-id="${task.id}" title="Delete Task">
+                            <button class="text-gray-400 hover:text-red-600 transition-colors delete-button touch-friendly" data-task-id="${task.id}" title="Delete Task">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -1800,14 +2395,14 @@
                     ${task.dueTime ? `<span class="text-xs text-gray-500 flex items-center"><i class="far fa-clock mr-1"></i> ${task.dueTime}</span>` : ''}
                 </div>
                 <div class="flex justify-between items-center mt-3">
-                    <button class="toggle-kanban-checkbox text-gray-400 hover:text-green-500 transition-colors" data-task-id="${task.id}">
+                    <button class="toggle-kanban-checkbox text-gray-400 hover:text-green-500 transition-colors touch-friendly" data-task-id="${task.id}">
                         <i class="fas fa-${task.completed ? 'check-circle' : 'circle'}"></i>
                     </button>
                     <div class="flex space-x-1">
-                        <button class="text-gray-400 hover:text-purple-600 transition-colors edit-button" data-task-id="${task.id}">
+                        <button class="text-gray-400 hover:text-purple-600 transition-colors edit-button touch-friendly" data-task-id="${task.id}">
                             <i class="fas fa-edit text-xs"></i>
                         </button>
-                        <button class="text-gray-400 hover:text-red-600 transition-colors delete-button" data-task-id="${task.id}">
+                        <button class="text-gray-400 hover:text-red-600 transition-colors delete-button touch-friendly" data-task-id="${task.id}">
                             <i class="fas fa-trash text-xs"></i>
                         </button>
                     </div>
@@ -2028,6 +2623,9 @@
                                 'Are you sure you want to delete this task? This action cannot be undone.',
                                 () => deleteTask(taskId)
                             );
+                            break;
+                        case 'time':
+                            startTimeTracking(taskId);
                             break;
                     }
                     
@@ -2591,6 +3189,9 @@
                     <div class="empty-state py-4">
                         <i class="fas fa-chart-line"></i>
                         <p>No habits tracked yet. Add one to build consistency!</p>
+                        <button class="mt-2 px-3 py-1 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-700 transition-colors touch-friendly-btn">
+                            <i class="fas fa-plus mr-1"></i> Add Habit
+                        </button>
                     </div>
                 `;
                 return;
@@ -2773,6 +3374,9 @@
                         case 'notes':
                             element = document.getElementById('dailyNotes').parentElement;
                             break;
+                        case 'calendar':
+                            toggleCalendarView();
+                            return; // Don't scroll for calendar
                     }
                     
                     if (element) {
@@ -2782,7 +3386,208 @@
             });
         }
 
-        // Initialize the application
+        // New feature: Calendar integration
+        function renderCalendar() {
+            const calendarGrid = document.querySelector('.calendar-grid');
+            const currentMonthElement = document.getElementById('currentMonth');
+            
+            // Clear existing calendar days except weekdays
+            const weekdays = calendarGrid.querySelectorAll('.calendar-weekday');
+            calendarGrid.innerHTML = '';
+            weekdays.forEach(weekday => calendarGrid.appendChild(weekday));
+            
+            // Set current month display
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+            currentMonthElement.textContent = `${monthNames[state.calendar.currentMonth]} ${state.calendar.currentYear}`;
+            
+            // Get first day of month and number of days
+            const firstDay = new Date(state.calendar.currentYear, state.calendar.currentMonth, 1);
+            const lastDay = new Date(state.calendar.currentYear, state.calendar.currentMonth + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDay = firstDay.getDay();
+            
+            // Add empty cells for days before the first day of the month
+            for (let i = 0; i < startingDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day empty';
+                calendarGrid.appendChild(emptyDay);
+            }
+            
+            // Add days of the month
+            const today = new Date();
+            for (let i = 1; i <= daysInMonth; i++) {
+                const day = document.createElement('div');
+                day.className = 'calendar-day';
+                day.textContent = i;
+                
+                // Check if this day has tasks
+                const dateStr = `${state.calendar.currentYear}-${String(state.calendar.currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                const hasTasks = state.tasks.some(task => task.date === dateStr);
+                
+                if (hasTasks) {
+                    day.classList.add('has-tasks');
+                }
+                
+                // Check if this is today
+                if (i === today.getDate() && 
+                    state.calendar.currentMonth === today.getMonth() && 
+                    state.calendar.currentYear === today.getFullYear()) {
+                    day.classList.add('active');
+                }
+                
+                // Add click event
+                day.addEventListener('click', () => {
+                    // Remove active class from all days
+                    document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('active'));
+                    // Add active class to clicked day
+                    day.classList.add('active');
+                    
+                    // Update selected date
+                    state.selectedDate = new Date(state.calendar.currentYear, state.calendar.currentMonth, i);
+                    renderDateHeader();
+                    applyFilters();
+                    
+                    // Hide calendar and show task list
+                    toggleCalendarView();
+                });
+                
+                calendarGrid.appendChild(day);
+            }
+        }
+
+        function toggleCalendarView() {
+            state.calendarView = !state.calendarView;
+            
+            if (state.calendarView) {
+                document.getElementById('calendarView').classList.remove('hidden');
+                document.querySelector('.task-section').classList.add('hidden');
+                renderCalendar();
+            } else {
+                document.getElementById('calendarView').classList.add('hidden');
+                document.querySelector('.task-section').classList.remove('hidden');
+            }
+        }
+
+        function changeCalendarMonth(direction) {
+            if (direction === 'next') {
+                state.calendar.currentMonth++;
+                if (state.calendar.currentMonth > 11) {
+                    state.calendar.currentMonth = 0;
+                    state.calendar.currentYear++;
+                }
+            } else {
+                state.calendar.currentMonth--;
+                if (state.calendar.currentMonth < 0) {
+                    state.calendar.currentMonth = 11;
+                    state.calendar.currentYear--;
+                }
+            }
+            
+            renderCalendar();
+        }
+
+        // New feature: Time tracking
+        function startTimeTracking(taskId) {
+            if (state.timeTracker.isRunning) {
+                stopTimeTracking();
+            }
+            
+            state.timeTracker.isRunning = true;
+            state.timeTracker.startTime = new Date();
+            state.timeTracker.currentTaskId = taskId;
+            
+            // Show time tracker
+            document.getElementById('timeTracker').classList.remove('hidden');
+            
+            // Update display every second
+            state.timeTracker.interval = setInterval(updateTimeTrackerDisplay, 1000);
+            
+            showToast('Time tracking started', 'success');
+        }
+
+        function stopTimeTracking() {
+            if (!state.timeTracker.isRunning) return;
+            
+            state.timeTracker.isRunning = false;
+            const endTime = new Date();
+            const duration = Math.floor((endTime - state.timeTracker.startTime) / 1000); // in seconds
+            
+            // Save time entry
+            const timeEntry = {
+                taskId: state.timeTracker.currentTaskId,
+                startTime: state.timeTracker.startTime,
+                endTime: endTime,
+                duration: duration
+            };
+            
+            state.timeEntries.push(timeEntry);
+            localStorage.setItem('timeEntries', JSON.stringify(state.timeEntries));
+            
+            // Hide time tracker
+            document.getElementById('timeTracker').classList.add('hidden');
+            
+            // Clear interval
+            clearInterval(state.timeTracker.interval);
+            
+            // Reset display
+            document.getElementById('timeTrackerDisplay').textContent = '00:00:00';
+            
+            showToast(`Time tracked: ${formatTime(duration)}`, 'success');
+        }
+
+        function updateTimeTrackerDisplay() {
+            if (!state.timeTracker.isRunning) return;
+            
+            const now = new Date();
+            const duration = Math.floor((now - state.timeTracker.startTime) / 1000); // in seconds
+            document.getElementById('timeTrackerDisplay').textContent = formatTime(duration);
+        }
+
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            
+            return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        // Enhanced mobile responsiveness
+        function enhanceMobileResponsiveness() {
+            // Make buttons more touch-friendly
+            document.querySelectorAll('button, select, input[type="checkbox"]').forEach(element => {
+                if (!element.classList.contains('touch-friendly') && !element.classList.contains('touch-friendly-btn')) {
+                    if (element.tagName === 'BUTTON') {
+                        element.classList.add('touch-friendly-btn');
+                    } else {
+                        element.classList.add('touch-friendly');
+                    }
+                }
+            });
+            
+            // Improve task item touch interactions
+            document.addEventListener('touchstart', function() {}, { passive: true });
+            
+            // Adjust layout for mobile
+            if (window.innerWidth < 768) {
+                // Stack elements vertically
+                document.querySelectorAll('.flex-row').forEach(el => {
+                    if (el.classList.contains('md:flex-row')) return;
+                    el.classList.add('flex-col');
+                    el.classList.remove('flex-row');
+                });
+                
+                // Adjust padding and margins
+                document.querySelectorAll('.p-4, .p-5, .p-6').forEach(el => {
+                    const currentPadding = parseInt(getComputedStyle(el).padding);
+                    if (currentPadding > 16) {
+                        el.style.padding = '16px';
+                    }
+                });
+            }
+        }
+
+        // Initialize the application with new features
         function init() {
             // Set up event listeners
             document.getElementById('addTaskButton').addEventListener('click', addTask);
@@ -2808,6 +3613,11 @@
             document.getElementById('viewModeButton').addEventListener('click', toggleViewMode);
             document.getElementById('viewToggle').addEventListener('click', toggleViewMode);
             document.getElementById('closeKanban').addEventListener('click', toggleViewMode);
+            
+            // Calendar toggle
+            document.getElementById('calendarToggle').addEventListener('click', toggleCalendarView);
+            document.getElementById('prevMonth').addEventListener('click', () => changeCalendarMonth('prev'));
+            document.getElementById('nextMonth').addEventListener('click', () => changeCalendarMonth('next'));
             
             // Settings modal
             document.getElementById('settingsToggle').addEventListener('click', () => {
@@ -2940,6 +3750,19 @@
             // Context menu
             setupContextMenuActions();
             
+            // Time tracking
+            document.getElementById('startTimerBtn').addEventListener('click', () => {
+                // This would typically be called from a specific task
+                // For demo, we'll use the first task if available
+                if (state.tasks.length > 0) {
+                    startTimeTracking(state.tasks[0].id);
+                } else {
+                    showToast('No tasks available to track time for', 'error');
+                }
+            });
+            
+            document.getElementById('stopTimerBtn').addEventListener('click', stopTimeTracking);
+            
             // Initialize UI
             renderDateHeader();
             updateTimerDisplay();
@@ -2958,6 +3781,10 @@
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             }
+            
+            // Enhance mobile responsiveness
+            enhanceMobileResponsiveness();
+            window.addEventListener('resize', enhanceMobileResponsiveness);
             
             // Add some sample tasks for demonstration
             if (state.tasks.length === 0) {
